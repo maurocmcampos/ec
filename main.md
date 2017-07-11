@@ -1,33 +1,26 @@
-# Título 1
+# Título
+
+Mauro Campos
+
+## Seção
 
 Lista tarefas:
 
  - Comer pão		 
  - Beber vinho
  
-# Título 2
- 
-## Exemplo de bloco		 
+## Seção		 
 
  - Primeiro item		 
  - Segundo item
  
-# Exemplos de Equações
+## Seção
 
- - Podemos usar equações em linha $\left(\frac{\pi}{2}-\theta\right)$		
- - Como também podemos utilizar equações em bloco
- 
- \begin{equation}		
- \frac{n!}{r!(n-r)!}		
- \label{eq:ex1}		
- \end{equation}
- 
- # Exemplo de tabela
-Olhe isso:
+Exemplo de tabela:
 
-| Direita | Esquerda | Padrão | Centro |
-|--------:|:---------|--------|:------:|
-|   12    |  12      |    12  |    12  |
-|  123    |  123     |   123  |   123  |
-|    1    |    1     |     1  |     1  |
+| Esquerda | Esquerda | Centro | Direita |
+|---------:|:---------|--------|:-------:|
+|   12     |  12      |    12  |    12   |
+|  123     |  123     |   123  |   123   |
+|    1     |    1     |     1  |     1   |
  

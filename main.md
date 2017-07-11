@@ -22,3 +22,12 @@ Lista tarefas:
  \label{eq:ex1}		
  \end{equation}
  
+ # Exemplo de tabela
+Olhe isso:
+
+| Direita | Esquerda | Padrão | Centro |
+|--------:|:---------|--------|:------:|
+|   12    |  12      |    12  |    12  |
+|  123    |  123     |   123  |   123  |
+|    1    |    1     |     1  |     1  |
+ 

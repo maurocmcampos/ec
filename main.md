@@ -15,4 +15,10 @@ Lista tarefas:
 # Exemplos de Equações
 
  - Podemos usar equações em linha $\left(\frac{\pi}{2}-\theta\right)$		
- - Como também podemos utilizar equações em bloco $$\sum_{i=1}^{n}{X_i}$$
+ - Como também podemos utilizar equações em bloco
+ 
+ \begin{equation}		
+ \frac{n!}{r!(n-r)!}		
+ \label{eq:ex1}		
+ \end{equation}
+ 

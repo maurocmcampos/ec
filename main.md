@@ -18,14 +18,14 @@ Lista ordenada:
  
 Lista encadeada:
 
-1. Mmmm
- 1. Mmmmm
- 2. Mmmmm
- * Mmmmm
-2. Mmmm
- * Mmmm
- * Mmmm
-3. Mmmm
+ 1. Mmmm
+  1. Mmmmm
+  2. Mmmmm
+  * Mmmmm
+ 2. Mmmm
+  * Mmmm
+  * Mmmm
+ 3. Mmmm
 
 ## Seção: Destaque
 

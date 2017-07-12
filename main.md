@@ -56,10 +56,9 @@ This site was built using [GitHub Pages](https://pages.github.com/).
 
 Visite [minha HP no GitHub](https://maurocmcampos.github.io/).
 
-Visite também [Meu primeiro reposotório](https://github.com/maurocmcampos/hello-world/blob/master/README.md)
+Visite também [Meu primeiro reposotório](https://github.com/maurocmcampos/hello-world/blob/master/README.md).
 
-
-
+Agora leia o seguinte [Artigo](http://www.maurocampos.com/tese/a01.pdf).
 
 
 

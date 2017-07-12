@@ -1,8 +1,3 @@
-% My title with `markdown` *emphasis*
-% John MacFarlane
-  John Doe
-% September 6, 2004
-
 # Título
 
 Mauro Campos
@@ -15,6 +10,10 @@ Lista tarefas:
  - Beber vinho
  
 ## Seção
+
+Um destaque
+
+> Mmmmmm
 
 Exemplo de tabela:
 

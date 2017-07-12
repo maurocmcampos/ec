@@ -1,3 +1,8 @@
+% My title with `markdown` *emphasis*
+% John MacFarlane
+  John Doe
+% September 6, 2004
+
 # Título
 
 Mauro Campos

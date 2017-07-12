@@ -1,19 +1,28 @@
-# Título
+# O que estou aprendendo no GitHub
 
-Mauro Campos
+**Mauro Campos**
 
-## Seção
+## Seção: Lista
 
 Lista tarefas:
 
  - Comer pão		 
  - Beber vinho
  
-## Seção
+## Seção: Destaque
 
 Um destaque
 
 > Mmmmmm
+
+Informação em bloco:
+```
+git Info 1
+git Info 2
+git Info 3
+```
+
+## Seção: Tabela
 
 Exemplo de tabela:
 

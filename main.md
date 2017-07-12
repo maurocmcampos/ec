@@ -16,7 +16,7 @@ Lista ordenada:
  3. Azul
  4. Amarelo
  
-Lista encadeada:
+Lista:
 
  1. Mmmm
     1. Mmmmm

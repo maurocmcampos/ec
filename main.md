@@ -2,13 +2,31 @@
 
 **Mauro Campos**
 
-## Seção: Lista
+## Seção: Listas
 
-Lista tarefas:
+Lista não ordenada:
 
  - Comer pão		 
  - Beber vinho
  
+Lista ordenada:
+
+ 1 Vermelho		 
+ 2 Verde
+ 3 Azul
+ 4 Amarelo
+ 
+Lista encadeada:
+
+1 Mmmm
+ 1 Mmmmm
+ 2 Mmmmm
+ * Mmmmm
+2 Mmmm
+ * Mmmm
+ * Mmmm
+3 Mmmm
+
 ## Seção: Destaque
 
 Um destaque

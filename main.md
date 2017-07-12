@@ -17,9 +17,9 @@ Um destaque
 
 Informação em bloco:
 ```
-git Info 1
-git Info 2
-git Info 3
+Info 1
+Info 2
+Info 3
 ```
 
 ## Seção: Tabela
@@ -32,3 +32,9 @@ Exemplo de tabela:
 |  123    |  123     |   123    |   123   |
 |    1    |  1       |     1    |     1   |
  
+## Seção: Links
+
+This site was built using [GitHub Pages](https://pages.github.com/).
+
+Visite [minha HP no GitHub](https://maurocmcampos.github.io/).
+

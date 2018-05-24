@@ -1,3 +1,3 @@
-# My first repository
+# Projeto Probabilidade
 
-Hi, my name is Mauro Campos. I use this repository to learn more about GitHub.
+Este é o repositório deste projeto.

@@ -1,3 +1,3 @@
-# Projeto Probabilidade
+# Probabilidade
 
 Este é o repositório deste projeto.

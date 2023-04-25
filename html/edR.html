@@ -365,7 +365,7 @@ pre code {
 <h1 class="title toc-ignore">Funções do R para estatística
 descritiva</h1>
 <h4 class="author">Mauro Campos</h4>
-<h4 class="date">21 de abril de 2023</h4>
+<h4 class="date">25 de abril de 2023</h4>
 
 </div>
 
@@ -384,8 +384,8 @@ contínua</a></li>
 discreta</a></li>
 <li><a href="#variável-categórica" id="toc-variável-categórica"><span class="toc-section-number">3.3</span> Variável categórica</a></li>
 </ul></li>
-<li><a href="#funções-para-visualização-de-dados-univariados" id="toc-funções-para-visualização-de-dados-univariados"><span class="toc-section-number">4</span> Funções para visualização de dados
-univariados</a>
+<li><a href="#funções-para-visualização-de-um-conjunto-de-dados" id="toc-funções-para-visualização-de-um-conjunto-de-dados"><span class="toc-section-number">4</span> Funções para visualização de um
+conjunto de dados</a>
 <ul>
 <li><a href="#histograma" id="toc-histograma"><span class="toc-section-number">4.1</span> Histograma</a></li>
 <li><a href="#gráfico-de-barras" id="toc-gráfico-de-barras"><span class="toc-section-number">4.2</span> Gráfico de barras</a></li>
@@ -420,14 +420,14 @@ numérica</a></li>
 </div>
 
 <hr />
-<ul>
-<li><strong>Referências</strong> para leitura deste material:
+<p align="justify">
+<strong>Referências</strong> para leitura deste material:
+</p>
 <ul>
 <li>P. Morettin &amp; W. Bussab. Estatística Básica. 6a ed. São Paulo:
 Saraiva, 2010.</li>
 <li>M. Campos. Introdução ao R. Vitória, 2018. Disponível em: <a href="https://maurocmcampos.github.io/ec/html/intror.html">https://maurocmcampos.github.io/ec/html/intror.html</a>.</li>
 <li>Learn R programming: simply easy learning. Disponível em: <a href="https://www.tutorialspoint.com/r/index.htm">https://www.tutorialspoint.com/r/index.htm</a>.</li>
-</ul></li>
 </ul>
 <hr />
 <div id="lendo-um-conjunto-de-dados-de-um-arquivo-externo" class="section level1" number="1">
@@ -441,83 +441,87 @@ referência Morettin &amp; Bussab (2010). A função
 tipo .txt. A função <code>read.csv()</code> faz o mesmo para arquivos do
 tipo .csv (comma-separated values file).
 </p>
-<pre class="r"><code>df0 &lt;- read.table(file=&quot;C:\\Users\\mauro\\Dropbox\\NotasDeAula\\Ano2023\\tab21.txt&quot;,header=TRUE)
-df &lt;- df0[,-7]
-df
-##     N estado_civil grau_instrucao n_filhos salario idade_anos reg_procedencia
-## 1   1     solteiro    fundamental       NA    4.00         26        interior
-## 2   2       casado    fundamental        1    4.56         32         capital
-## 3   3       casado    fundamental        2    5.25         36         capital
-## 4   4     solteiro          medio       NA    5.73         20           outra
-## 5   5     solteiro    fundamental       NA    6.26         40           outra
-## 6   6       casado    fundamental        0    6.66         28        interior
-## 7   7     solteiro    fundamental       NA    6.86         41        interior
-## 8   8     solteiro    fundamental       NA    7.39         43         capital
-## 9   9       casado          medio        1    7.59         34         capital
-## 10 10     solteiro          medio       NA    7.44         23           outra
-## 11 11       casado          medio        2    8.12         33        interior
-## 12 12     solteiro    fundamental       NA    8.46         27         capital
-## 13 13     solteiro          medio       NA    8.74         37           outra
-## 14 14       casado    fundamental        3    8.95         44           outra
-## 15 15       casado          medio        0    9.13         30        interior
-## 16 16     solteiro          medio       NA    9.35         38           outra
-## 17 17       casado          medio        1    9.77         31         capital
-## 18 18       casado    fundamental        2    9.80         39           outra
-## 19 19     solteiro       superior       NA   10.53         25        interior
-## 20 20     solteiro          medio       NA   10.76         37        interior
-## 21 21       casado          medio        1   11.06         30           outra
-## 22 22     solteiro          medio       NA   11.59         34         capital
-## 23 23     solteiro    fundamental       NA   12.00         41           outra
-## 24 24       casado       superior        0   12.79         26           outra
-## 25 25       casado          medio        2   13.23         32        interior
-## 26 26       casado          medio        2   13.60         35           outra
-## 27 27     solteiro    fundamental       NA   13.85         46           outra
-## 28 28       casado          medio        0   14.69         29        interior
-## 29 29       casado          medio        5   14.71         40        interior
-## 30 30       casado          medio        2   15.99         35         capital
-## 31 31     solteiro       superior       NA   16.22         31           outra
-## 32 32       casado          medio        1   16.61         36        interior
-## 33 33       casado       superior        3   17.26         43         capital
-## 34 34     solteiro       superior       NA   18.75         33         capital
-## 35 35       casado          medio        2   19.40         48         capital
-## 36 36       casado       superior        3   23.30         42        interior</code></pre>
+<pre class="r"><code>df0 &lt;- read.table(file=&quot;tab.txt&quot;,header=TRUE,stringsAsFactors=FALSE)
+df0
+##     N estado_civil grau_instrucao n_filhos salario idade reg_procedencia
+## 1   1     solteiro    fundamental       NA    4.00    26        interior
+## 2   2       casado    fundamental        1    4.56    32         capital
+## 3   3       casado    fundamental        2    5.25    36         capital
+## 4   4     solteiro          medio       NA    5.73    20           outra
+## 5   5     solteiro    fundamental       NA    6.26    40           outra
+## 6   6       casado    fundamental        0    6.66    28        interior
+## 7   7     solteiro    fundamental       NA    6.86    41        interior
+## 8   8     solteiro    fundamental       NA    7.39    43         capital
+## 9   9       casado          medio        1    7.59    34         capital
+## 10 10     solteiro          medio       NA    7.44    23           outra
+## 11 11       casado          medio        2    8.12    33        interior
+## 12 12     solteiro    fundamental       NA    8.46    27         capital
+## 13 13     solteiro          medio       NA    8.74    37           outra
+## 14 14       casado    fundamental        3    8.95    44           outra
+## 15 15       casado          medio        0    9.13    30        interior
+## 16 16     solteiro          medio       NA    9.35    38           outra
+## 17 17       casado          medio        1    9.77    31         capital
+## 18 18       casado    fundamental        2    9.80    39           outra
+## 19 19     solteiro       superior       NA   10.53    25        interior
+## 20 20     solteiro          medio       NA   10.76    37        interior
+## 21 21       casado          medio        1   11.06    30           outra
+## 22 22     solteiro          medio       NA   11.59    34         capital
+## 23 23     solteiro    fundamental       NA   12.00    41           outra
+## 24 24       casado       superior        0   12.79    26           outra
+## 25 25       casado          medio        2   13.23    32        interior
+## 26 26       casado          medio        2   13.60    35           outra
+## 27 27     solteiro    fundamental       NA   13.85    46           outra
+## 28 28       casado          medio        0   14.69    29        interior
+## 29 29       casado          medio        5   14.71    40        interior
+## 30 30       casado          medio        2   15.99    35         capital
+## 31 31     solteiro       superior       NA   16.22    31           outra
+## 32 32       casado          medio        1   16.61    36        interior
+## 33 33       casado       superior        3   17.26    43         capital
+## 34 34     solteiro       superior       NA   18.75    33         capital
+## 35 35       casado          medio        2   19.40    48         capital
+## 36 36       casado       superior        3   23.30    42        interior</code></pre>
 </div>
 <div id="entendendo-a-estrutura-do-conjunto-de-dados" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Entendendo a estrutura
 do conjunto de dados</h1>
 <p align="justify">
 Uma vez que o conjunto de dados foi lido e armazenada em um objeto, é
-necessário conhecer sua estrutura. Ou seja, saber quantas observações
-existem, quantas e quais são as variáveis envolvidas, seus tipos e
-valores. Isto pode ser feito com a função <code>str()</code>. A função
-<code>head()</code> mostra as 6 primeiras linhas de um conjunto de dados
-e a função <code>tail()</code> mostra as 6 últimas linhas.
+necessário conhecer sua estrutura. Isto significa, saber quantas
+observações existem, quantas e quais são as variáveis envolvidas, seus
+tipos e valores. Esta tarefa pode ser feita com a função
+<code>str()</code>. A função <code>head()</code> mostra as 6 primeiras
+linhas de um conjunto de dados e a função <code>tail()</code> mostra as
+6 últimas linhas. A função <code>class()</code> retorna a estrutura de
+dados que foi utilizada para armazenar as variáveis do conjunto de dados
+em questão. No caso a estrutura utilizada foi um data frame.
 </p>
-<pre class="r"><code>str(df)
+<pre class="r"><code>str(df0)
 ## &#39;data.frame&#39;:    36 obs. of  7 variables:
 ##  $ N              : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ estado_civil   : chr  &quot;solteiro&quot; &quot;casado&quot; &quot;casado&quot; &quot;solteiro&quot; ...
 ##  $ grau_instrucao : chr  &quot;fundamental&quot; &quot;fundamental&quot; &quot;fundamental&quot; &quot;medio&quot; ...
 ##  $ n_filhos       : int  NA 1 2 NA NA 0 NA NA 1 NA ...
 ##  $ salario        : num  4 4.56 5.25 5.73 6.26 6.66 6.86 7.39 7.59 7.44 ...
-##  $ idade_anos     : int  26 32 36 20 40 28 41 43 34 23 ...
+##  $ idade          : int  26 32 36 20 40 28 41 43 34 23 ...
 ##  $ reg_procedencia: chr  &quot;interior&quot; &quot;capital&quot; &quot;capital&quot; &quot;outra&quot; ...
-head(df)
-##   N estado_civil grau_instrucao n_filhos salario idade_anos reg_procedencia
-## 1 1     solteiro    fundamental       NA    4.00         26        interior
-## 2 2       casado    fundamental        1    4.56         32         capital
-## 3 3       casado    fundamental        2    5.25         36         capital
-## 4 4     solteiro          medio       NA    5.73         20           outra
-## 5 5     solteiro    fundamental       NA    6.26         40           outra
-## 6 6       casado    fundamental        0    6.66         28        interior
-tail(df)
-##     N estado_civil grau_instrucao n_filhos salario idade_anos reg_procedencia
-## 31 31     solteiro       superior       NA   16.22         31           outra
-## 32 32       casado          medio        1   16.61         36        interior
-## 33 33       casado       superior        3   17.26         43         capital
-## 34 34     solteiro       superior       NA   18.75         33         capital
-## 35 35       casado          medio        2   19.40         48         capital
-## 36 36       casado       superior        3   23.30         42        interior</code></pre>
+head(df0)
+##   N estado_civil grau_instrucao n_filhos salario idade reg_procedencia
+## 1 1     solteiro    fundamental       NA    4.00    26        interior
+## 2 2       casado    fundamental        1    4.56    32         capital
+## 3 3       casado    fundamental        2    5.25    36         capital
+## 4 4     solteiro          medio       NA    5.73    20           outra
+## 5 5     solteiro    fundamental       NA    6.26    40           outra
+## 6 6       casado    fundamental        0    6.66    28        interior
+tail(df0)
+##     N estado_civil grau_instrucao n_filhos salario idade reg_procedencia
+## 31 31     solteiro       superior       NA   16.22    31           outra
+## 32 32       casado          medio        1   16.61    36        interior
+## 33 33       casado       superior        3   17.26    43         capital
+## 34 34     solteiro       superior       NA   18.75    33         capital
+## 35 35       casado          medio        2   19.40    48         capital
+## 36 36       casado       superior        3   23.30    42        interior
+class(df0)
+## [1] &quot;data.frame&quot;</code></pre>
 </div>
 <div id="funções-para-síntese-numérica-de-um-conjunto-de-dados" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Funções para síntese
@@ -526,7 +530,7 @@ numérica de um conjunto de dados</h1>
 A função <code>summary()</code> proporciona uma síntese numérica rápida
 e simplificada para todas as variáveis de um conjunto de dados.
 </p>
-<pre class="r"><code>summary(df)
+<pre class="r"><code>summary(df0)
 ##        N         estado_civil       grau_instrucao        n_filhos   
 ##  Min.   : 1.00   Length:36          Length:36          Min.   :0.00  
 ##  1st Qu.: 9.75   Class :character   Class :character   1st Qu.:1.00  
@@ -535,7 +539,114 @@ e simplificada para todas as variáveis de um conjunto de dados.
 ##  3rd Qu.:27.25                                         3rd Qu.:2.00  
 ##  Max.   :36.00                                         Max.   :5.00  
 ##                                                        NA&#39;s   :16    
-##     salario         idade_anos    reg_procedencia   
+##     salario           idade       reg_procedencia   
+##  Min.   : 4.000   Min.   :20.00   Length:36         
+##  1st Qu.: 7.553   1st Qu.:30.00   Class :character  
+##  Median :10.165   Median :34.50   Mode  :character  
+##  Mean   :11.122   Mean   :34.58                     
+##  3rd Qu.:14.060   3rd Qu.:40.00                     
+##  Max.   :23.300   Max.   :48.00                     
+## </code></pre>
+<p align="justify">
+Note que a função <code>summary</code> não proporcionou uma síntese
+adequada para as variáveis categóricas: <strong>estado civil</strong>,
+<strong>grau de instrução</strong> e <strong>região de
+procedência</strong>. Isso ocorreu porque estas variáveis estão
+armazenadas em <code>df0</code> como vetores de caracteres (veja a
+estrutura de <code>df0</code> para confirmar esta observação). Ainda que
+em situações simples seja possível realizar análises de variáveis
+categóricas armazenadas como vetores de caracteres, é mais adequado
+utilizar a estrutura <code>factor()</code> (fator em Português) para
+armazenar tais variáveis. O script que segue realiza esta conversão de
+vetores de caracteres para fatores para as variáveis em questão.
+</p>
+<pre class="r"><code>#
+# Vamos preservar df0 apenas para comparação
+#
+df &lt;- df0 
+niveis.ec &lt;- c(&quot;solteiro&quot;,&quot;casado&quot;)
+niveis.gi &lt;- c(&quot;fundamental&quot;,&quot;medio&quot;,&quot;superior&quot;)
+niveis.rp &lt;- c(&quot;capital&quot;,&quot;interior&quot;,&quot;outra&quot;)
+df$estado_civil &lt;- factor(df$estado_civil,levels=niveis.ec)
+df$grau_instrucao &lt;- factor(df$grau_instrucao,levels=niveis.gi,ordered=TRUE)
+df$reg_procedencia &lt;- factor(df$reg_procedencia,levels=niveis.rp)
+#
+# Variáveis como fatores em df
+#
+df$estado_civil
+##  [1] solteiro casado   casado   solteiro solteiro casado   solteiro solteiro
+##  [9] casado   solteiro casado   solteiro solteiro casado   casado   solteiro
+## [17] casado   casado   solteiro solteiro casado   solteiro solteiro casado  
+## [25] casado   casado   solteiro casado   casado   casado   solteiro casado  
+## [33] casado   solteiro casado   casado  
+## Levels: solteiro casado
+df$grau_instrucao
+##  [1] fundamental fundamental fundamental medio       fundamental fundamental
+##  [7] fundamental fundamental medio       medio       medio       fundamental
+## [13] medio       fundamental medio       medio       medio       fundamental
+## [19] superior    medio       medio       medio       fundamental superior   
+## [25] medio       medio       fundamental medio       medio       medio      
+## [31] superior    medio       superior    superior    medio       superior   
+## Levels: fundamental &lt; medio &lt; superior
+df$reg_procedencia
+##  [1] interior capital  capital  outra    outra    interior interior capital 
+##  [9] capital  outra    interior capital  outra    outra    interior outra   
+## [17] capital  outra    interior interior outra    capital  outra    outra   
+## [25] interior outra    outra    interior interior capital  outra    interior
+## [33] capital  capital  capital  interior
+## Levels: capital interior outra</code></pre>
+<p align="justify">
+Compare agora com as estruturas de <code>df</code> e <code>df0</code>.
+</p>
+<pre class="r"><code>str(df)
+## &#39;data.frame&#39;:    36 obs. of  7 variables:
+##  $ N              : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ estado_civil   : Factor w/ 2 levels &quot;solteiro&quot;,&quot;casado&quot;: 1 2 2 1 1 2 1 1 2 1 ...
+##  $ grau_instrucao : Ord.factor w/ 3 levels &quot;fundamental&quot;&lt;..: 1 1 1 2 1 1 1 1 2 2 ...
+##  $ n_filhos       : int  NA 1 2 NA NA 0 NA NA 1 NA ...
+##  $ salario        : num  4 4.56 5.25 5.73 6.26 6.66 6.86 7.39 7.59 7.44 ...
+##  $ idade          : int  26 32 36 20 40 28 41 43 34 23 ...
+##  $ reg_procedencia: Factor w/ 3 levels &quot;capital&quot;,&quot;interior&quot;,..: 2 1 1 3 3 2 2 1 1 3 ...
+str(df0)
+## &#39;data.frame&#39;:    36 obs. of  7 variables:
+##  $ N              : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ estado_civil   : chr  &quot;solteiro&quot; &quot;casado&quot; &quot;casado&quot; &quot;solteiro&quot; ...
+##  $ grau_instrucao : chr  &quot;fundamental&quot; &quot;fundamental&quot; &quot;fundamental&quot; &quot;medio&quot; ...
+##  $ n_filhos       : int  NA 1 2 NA NA 0 NA NA 1 NA ...
+##  $ salario        : num  4 4.56 5.25 5.73 6.26 6.66 6.86 7.39 7.59 7.44 ...
+##  $ idade          : int  26 32 36 20 40 28 41 43 34 23 ...
+##  $ reg_procedencia: chr  &quot;interior&quot; &quot;capital&quot; &quot;capital&quot; &quot;outra&quot; ...</code></pre>
+<p align="justify">
+Compare agora com o <code>summary(df)</code> com o
+<code>summary(df0)</code>.
+</p>
+<pre class="r"><code>summary(df)
+##        N           estado_civil     grau_instrucao    n_filhos   
+##  Min.   : 1.00   solteiro:16    fundamental:12     Min.   :0.00  
+##  1st Qu.: 9.75   casado  :20    medio      :18     1st Qu.:1.00  
+##  Median :18.50                  superior   : 6     Median :2.00  
+##  Mean   :18.50                                     Mean   :1.65  
+##  3rd Qu.:27.25                                     3rd Qu.:2.00  
+##  Max.   :36.00                                     Max.   :5.00  
+##                                                    NA&#39;s   :16    
+##     salario           idade       reg_procedencia
+##  Min.   : 4.000   Min.   :20.00   capital :11    
+##  1st Qu.: 7.553   1st Qu.:30.00   interior:12    
+##  Median :10.165   Median :34.50   outra   :13    
+##  Mean   :11.122   Mean   :34.58                  
+##  3rd Qu.:14.060   3rd Qu.:40.00                  
+##  Max.   :23.300   Max.   :48.00                  
+## 
+summary(df0)
+##        N         estado_civil       grau_instrucao        n_filhos   
+##  Min.   : 1.00   Length:36          Length:36          Min.   :0.00  
+##  1st Qu.: 9.75   Class :character   Class :character   1st Qu.:1.00  
+##  Median :18.50   Mode  :character   Mode  :character   Median :2.00  
+##  Mean   :18.50                                         Mean   :1.65  
+##  3rd Qu.:27.25                                         3rd Qu.:2.00  
+##  Max.   :36.00                                         Max.   :5.00  
+##                                                        NA&#39;s   :16    
+##     salario           idade       reg_procedencia   
 ##  Min.   : 4.000   Min.   :20.00   Length:36         
 ##  1st Qu.: 7.553   1st Qu.:30.00   Class :character  
 ##  Median :10.165   Median :34.50   Mode  :character  
@@ -615,7 +726,15 @@ max(df$n_filhos,na.rm=TRUE)
 var(df$n_filhos,na.rm=TRUE)
 ## [1] 1.607895
 sd(df$n_filhos,na.rm=TRUE)
-## [1] 1.268028</code></pre>
+## [1] 1.268028
+table(df$n_filhos,useNA=&quot;no&quot;)
+## 
+## 0 1 2 3 5 
+## 4 5 7 3 1
+round(prop.table(table(df$n_filhos,useNA=&quot;no&quot;))*100,2)
+## 
+##  0  1  2  3  5 
+## 20 25 35 15  5</code></pre>
 <p align="justify">
 Uma tabela de frequências para a variável <strong>número de
 filhos</strong> pode ser construída com o seguinte script.
@@ -684,19 +803,22 @@ Como exemplo de síntese de uma variável categórica, considere a variável
 <strong>grau de instrução</strong>.
 </p>
 <pre class="r"><code>df$grau_instrucao
-##  [1] &quot;fundamental&quot; &quot;fundamental&quot; &quot;fundamental&quot; &quot;medio&quot;       &quot;fundamental&quot;
-##  [6] &quot;fundamental&quot; &quot;fundamental&quot; &quot;fundamental&quot; &quot;medio&quot;       &quot;medio&quot;      
-## [11] &quot;medio&quot;       &quot;fundamental&quot; &quot;medio&quot;       &quot;fundamental&quot; &quot;medio&quot;      
-## [16] &quot;medio&quot;       &quot;medio&quot;       &quot;fundamental&quot; &quot;superior&quot;    &quot;medio&quot;      
-## [21] &quot;medio&quot;       &quot;medio&quot;       &quot;fundamental&quot; &quot;superior&quot;    &quot;medio&quot;      
-## [26] &quot;medio&quot;       &quot;fundamental&quot; &quot;medio&quot;       &quot;medio&quot;       &quot;medio&quot;      
-## [31] &quot;superior&quot;    &quot;medio&quot;       &quot;superior&quot;    &quot;superior&quot;    &quot;medio&quot;      
-## [36] &quot;superior&quot;
+##  [1] fundamental fundamental fundamental medio       fundamental fundamental
+##  [7] fundamental fundamental medio       medio       medio       fundamental
+## [13] medio       fundamental medio       medio       medio       fundamental
+## [19] superior    medio       medio       medio       fundamental superior   
+## [25] medio       medio       fundamental medio       medio       medio      
+## [31] superior    medio       superior    superior    medio       superior   
+## Levels: fundamental &lt; medio &lt; superior
 table(df$grau_instrucao)
 ## 
 ## fundamental       medio    superior 
 ##          12          18           6
 round((table(df$grau_instrucao)/sum(table(df$grau_instrucao)))*100,2)
+## 
+## fundamental       medio    superior 
+##       33.33       50.00       16.67
+round(prop.table(table(df$grau_instrucao))*100,2)
 ## 
 ## fundamental       medio    superior 
 ##       33.33       50.00       16.67</code></pre>
@@ -751,9 +873,9 @@ df.instrucao
 </table>
 </div>
 </div>
-<div id="funções-para-visualização-de-dados-univariados" class="section level1" number="4">
+<div id="funções-para-visualização-de-um-conjunto-de-dados" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Funções para
-visualização de dados univariados</h1>
+visualização de um conjunto de dados</h1>
 <div id="histograma" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Histograma</h2>
 <p align="justify">
@@ -1247,9 +1369,9 @@ variáveis categóricas</h2>
 A função <code>chisq.test()</code> pode ser utilizada para realiza o
 seguinte teste de hipóteses envolvendo duas variáveis categóricas: <span class="math display">\[
 \begin{cases}
-H_{0}: &amp; \mbox{As variáveis $X$ e $Y$ são independentes} \\
-H_{1}: &amp; \mbox{$X$ e $Y$ não são independentes (ou seja, existe
-associação entre $X$ e $Y$).}
+H_{0}: &amp; \mbox{$X$ e $Y$ são independentes} \\
+H_{1}: &amp; \mbox{$X$ e $Y$ não são independentes} \\
+       &amp; \mbox{($X$ e $Y$ estão associadas)}
 \end{cases}
 \]</span> Como exemplo, considere o conjunto de dados bivariado desta
 seção envolvendo as variáveis <strong>estado</strong> e <strong>tipo de
@@ -1461,9 +1583,7 @@ variáveis <span class="math inline">\(x\)</span> e <span class="math inline">\(
 pode ser feito calculando o coeficiente de correlação amostral (de
 Pearson) definido por <span class="math display">\[
 r=\frac{\sum_{i}(x_{i}-\bar{x})(y_{i}-\bar{y})}
-{\sqrt{\sum_{i}(x_{i}-\bar{x})^{2}\cdot\sum_{i}(y_{i}-\bar{y})^{2}}}=
-\frac{\sum_{i}x_{i}y_{i}-n\bar{x}\bar{y}}
-{\sqrt{(\sum_{i}x_{i}^{2}-n\bar{x}^{2})\cdot(\sum_{i}y_{i}^{2}-n\bar{y}^{2})}}
+{\sqrt{\sum_{i}(x_{i}-\bar{x})^{2}\cdot\sum_{i}(y_{i}-\bar{y})^{2}}}
 \]</span> que é um estimador do coeficiente de correlação populacional
 entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, definido por <span class="math display">\[
 \rho=\rho(x,y)=\frac{Cov(x,y)}{\sigma_{x}\cdot\sigma_{y}}
@@ -1472,8 +1592,8 @@ hipóteses deve ser realizado: <span class="math display">\[
 \begin{cases}
 H_{0}: &amp; \rho=0\hspace{0.5cm}(\mbox{Não existe correlação entre $x$
 e $y$})\\
-H_{1}: &amp; \rho\not=0 \hspace{0.5cm}(\mbox{Existe correlação linear
-entre $x$ e $y$}).
+H_{1}: &amp; \rho\not=0 \hspace{0.5cm}(\mbox{Existe correlação entre $x$
+e $y$}).
 \end{cases}
 \]</span> O seguinte script porporciona funções para calcular <span class="math inline">\(r\)</span> (a função <code>cor()</code>) e testar
 <span class="math inline">\(H_{0}:\rho=0\)</span> (a função
@@ -1635,30 +1755,9 @@ variáveis <strong>grau de instrução</strong> e <strong>salário</strong>.
 Este conjunto de dados contém, portanto, uma variável categórica e outra
 numérica. Os dados são:
 </p>
-<pre class="r"><code>df3a &lt;- subset(df0,select=c(&quot;grau_instrucao&quot;,&quot;salario&quot;))
-str(df3a)
-## &#39;data.frame&#39;:    36 obs. of  2 variables:
-##  $ grau_instrucao: chr  &quot;fundamental&quot; &quot;fundamental&quot; &quot;fundamental&quot; &quot;medio&quot; ...
-##  $ salario       : num  4 4.56 5.25 5.73 6.26 6.66 6.86 7.39 7.59 7.44 ...
-head(df3a)
-##   grau_instrucao salario
-## 1    fundamental    4.00
-## 2    fundamental    4.56
-## 3    fundamental    5.25
-## 4          medio    5.73
-## 5    fundamental    6.26
-## 6    fundamental    6.66
-instrucao &lt;- factor(df3a$grau_instrucao,ordered=TRUE)
-levels(instrucao) &lt;- c(&quot;Fundamental&quot;,&quot;Medio&quot;,&quot;Superior&quot;)
-instrucao
-##  [1] Fundamental Fundamental Fundamental Medio       Fundamental Fundamental
-##  [7] Fundamental Fundamental Medio       Medio       Medio       Fundamental
-## [13] Medio       Fundamental Medio       Medio       Medio       Fundamental
-## [19] Superior    Medio       Medio       Medio       Fundamental Superior   
-## [25] Medio       Medio       Fundamental Medio       Medio       Medio      
-## [31] Superior    Medio       Superior    Superior    Medio       Superior   
-## Levels: Fundamental &lt; Medio &lt; Superior
-df3 &lt;- data.frame(Grau_instrucao=instrucao,Salario=df3a$salario)
+<pre class="r"><code>df3 &lt;- subset(df,select=c(&quot;grau_instrucao&quot;,&quot;salario&quot;))
+colnames(df3) &lt;- c(&quot;Grau_instrucao&quot;,&quot;Salario&quot;)
+levels(df3$Grau_instrucao) &lt;- c(&quot;Fundamental&quot;,&quot;Medio&quot;,&quot;Superior&quot;)
 str(df3)
 ## &#39;data.frame&#39;:    36 obs. of  2 variables:
 ##  $ Grau_instrucao: Ord.factor w/ 3 levels &quot;Fundamental&quot;&lt;..: 1 1 1 2 1 1 1 1 2 2 ...

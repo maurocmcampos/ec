@@ -883,26 +883,28 @@ Considere novamente a variável <strong>salário</strong>. Uma tabela de
 frequências para a variável <strong>salário</strong> pode ser construída
 com o seguinte script.
 </p>
-<pre class="r"><code>faixas &lt;- c(&quot;[4,8)&quot;,&quot;[8,12)&quot;,&quot;[12,16)&quot;,&quot;[16,20)&quot;,&quot;[20,24)&quot;,&quot;Total&quot;)
-frequencias &lt;- c(10,12,8,5,1,sum(c(10,12,8,5,1)))
-proporcoes &lt;- round((frequencias/sum(c(10,12,8,5,1)))*100,2)
-df.salario &lt;- data.frame(faixas,frequencias,proporcoes)
-rownames(df.salario) &lt;- 1:length(faixas)
-colnames(df.salario) &lt;- c(&quot;Faixa salarial&quot;,&quot;Frequência&quot;,&quot;Frequência (%)&quot;)
+<pre class="r"><code>salario.d &lt;- cut(df$salario,breaks=seq(4,24,4),right=FALSE)
+classes &lt;- levels(salario.d)
+freq &lt;- as.vector(table(salario.d))
+freq.r &lt;- round(100*as.vector(prop.table(freq)),2)
+freq.a &lt;- cumsum(freq.r)
+df.salario &lt;- data.frame(c(classes,&quot;Total&quot;),c(freq,sum(freq)),c(freq.r,sum(freq.r)),c(freq.a,NaN))
+colnames(df.salario) &lt;- c(&quot;Faixa salarial&quot;,&quot;Frequência&quot;,&quot;Frequência (%)&quot;,&quot;Frequência acumulada&quot;)
 df.salario
-##   Faixa salarial Frequência Frequência (%)
-## 1          [4,8)         10          27.78
-## 2         [8,12)         12          33.33
-## 3        [12,16)          8          22.22
-## 4        [16,20)          5          13.89
-## 5        [20,24)          1           2.78
-## 6          Total         36         100.00</code></pre>
+##   Faixa salarial Frequência Frequência (%) Frequência acumulada
+## 1          [4,8)         10          27.78                27.78
+## 2         [8,12)         12          33.33                61.11
+## 3        [12,16)          8          22.22                83.33
+## 4        [16,20)          5          13.89                97.22
+## 5        [20,24)          1           2.78               100.00
+## 6          Total         36         100.00                  NaN</code></pre>
 <table>
 <thead>
 <tr class="header">
 <th align="left">Faixa salarial</th>
 <th align="center">Frequência</th>
 <th align="center">Frequência (%)</th>
+<th align="left">Frequência acumulada</th>
 </tr>
 </thead>
 <tbody>
@@ -910,31 +912,37 @@ df.salario
 <td align="left">[4,8)</td>
 <td align="center">10</td>
 <td align="center">27.78</td>
+<td align="left">27.78</td>
 </tr>
 <tr class="even">
 <td align="left">[8,12)</td>
 <td align="center">12</td>
 <td align="center">33.33</td>
+<td align="left">61.11</td>
 </tr>
 <tr class="odd">
 <td align="left">[12,16)</td>
 <td align="center">8</td>
 <td align="center">22.22</td>
+<td align="left">83.33</td>
 </tr>
 <tr class="even">
 <td align="left">[16,20)</td>
 <td align="center">5</td>
 <td align="center">13.89</td>
+<td align="left">97.22</td>
 </tr>
 <tr class="odd">
 <td align="left">[20,24)</td>
 <td align="center">1</td>
 <td align="center">2.78</td>
+<td align="left">100.00</td>
 </tr>
 <tr class="even">
 <td align="left">Total</td>
 <td align="center">36</td>
 <td align="center">100.00</td>
+<td align="left">NaN</td>
 </tr>
 </tbody>
 </table>
